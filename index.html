@@ -1,4 +1,183 @@
-    :root{
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrasco Burguers</title>
+
+<style>
+:root{
+--bg:#070707;
+--painel:#0f0f10;
+--painel2:#121214;
+--ouro:#d4af37;
+--gold2:#f2d46b;
+--txt:#f3f3f3;
+--muted:#a9a9a9;
+--linha:rgba(212,175,55,.18);
+--sombra:0 18px 60px rgba(0,0,0,.6);
+--raio:18px;
+}
+
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:system-ui,Arial;
+background:radial-gradient(1200px 800px at 50% -10%,rgba(212,175,55,.12),transparent 55%),var(--bg);
+color:var(--txt);
+line-height:1.4;
+}
+
+.container{max-width:900px;margin:auto;padding:22px}
+
+.top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+margin-bottom:20px;
+}
+
+.btn{
+padding:10px 14px;
+border-radius:999px;
+border:1px solid var(--linha);
+background:#000;
+color:var(--gold2);
+text-decoration:none;
+font-weight:700;
+}
+
+.btn.gold{
+background:linear-gradient(180deg,var(--gold2),var(--ouro));
+color:#000;
+border:none;
+}
+
+h1{
+text-align:center;
+color:var(--gold2);
+letter-spacing:.05em;
+margin:20px 0 6px;
+}
+
+.subtitle{
+text-align:center;
+color:var(--muted);
+margin-bottom:30px;
+}
+
+.card{
+background:linear-gradient(180deg,rgba(18,18,20,.85),rgba(10,10,11,.9));
+border:1px solid var(--linha);
+border-radius:var(--raio);
+padding:18px;
+margin-bottom:16px;
+box-shadow:var(--sombra);
+}
+
+.title{
+display:flex;
+justify-content:space-between;
+color:var(--gold2);
+font-weight:800;
+font-size:18px;
+}
+
+.price{color:var(--gold2);font-weight:800}
+
+.desc{color:#ddd;font-size:14px;margin-top:6px}
+
+.section{
+margin-top:34px;
+color:var(--gold2);
+font-size:22px;
+font-weight:900;
+}
+
+.badge{
+display:inline-block;
+border:1px solid var(--linha);
+padding:6px 10px;
+border-radius:999px;
+font-size:12px;
+color:var(--gold2);
+margin-top:6px;
+}
+
+.footer{
+text-align:center;
+color:var(--muted);
+margin:40px 0 10px;
+font-size:14px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div class="top">
+<a class="btn" href="https://wa.me/5511949354173">WhatsApp</a>
+<a class="btn gold" href="https://www.ifood.com.br/delivery/osasco-sp/carrasco-burguers-vila-campesina/adaf1d4c-b251-46c9-ac4b-9b11dd7db00a">Pedir no iFood</a>
+</div>
+
+<h1>CARRASCO BURGUERS</h1>
+<div class="subtitle">Aqui o sabor não pede licença</div>
+
+<h2 class="section">🔥 Hambúrgueres Artesanais</h2>
+
+<div class="card">
+<div class="title">Carrasco Clássico <span class="price">R$ 52,90</span></div>
+<div class="desc">Hambúrguer bovino 180g, queijo derretido, bacon crocante e maionese da casa no pão brioche.</div>
+</div>
+
+<div class="card">
+<div class="title">Carrasco Negro <span class="price">R$ 59,90</span></div>
+<div class="desc">Hambúrguer bovino 180g, queijo intenso, cebola caramelizada e maionese especial no pão escuro.</div>
+</div>
+
+<div class="card">
+<div class="title">Duplo Carrasco <span class="price">R$ 51,90</span></div>
+<div class="desc">Dois smash burgers 90g, queijo derretido, bacon e cebola grelhada no pão brioche.</div>
+</div>
+
+<div class="card">
+<div class="title">Carrasco de Fogo <span class="price">R$ 48,90</span></div>
+<div class="desc">Filé de frango empanado, queijo derretido e molho levemente apimentado no pão brioche.</div>
+<div class="badge">Levemente apimentado</div>
+</div>
+
+<div class="card">
+<div class="title">Carrasco Verde <span class="price">R$ 52,90</span></div>
+<div class="desc">Hambúrguer vegetal, maionese de ervas e tomate confit no pão brioche.</div>
+<div class="badge">Vegetariano</div>
+</div>
+
+<h2 class="section">🍔 Combo em Destaque</h2>
+
+<div class="card">
+<div class="title">Combo Sentença <span class="price">+ R$ 18,90</span></div>
+<div class="desc">Lanche + batata + bebida (refrigerante 350ml ou suco natural 500ml).</div>
+<div class="desc">Sabores do suco: laranja, limão, abacaxi, manga, maracujá, abacaxi com hortelã.</div>
+</div>
+
+<h2 class="section">🥤 Bebidas</h2>
+
+<div class="card">
+<div class="title">Refrigerante 350ml <span class="price">R$ 12,00</span></div>
+</div>
+
+<div class="card">
+<div class="title">Suco Natural 500ml <span class="price">R$ 16,00</span></div>
+</div>
+
+<h2 class="section">➕ Adicionais</h2>
+
+<div class="card"><div class="title">Golpe de Bacon <span class="price">R$ 8,00</span></div></div>
+<div class="card"><div class="title">Queijo Condenado <span class="price">R$ 7,00</span></div></div>
+<div class="card"><div class="title">Carga Extra 180g    :root{
       --bg:#070707;
       --panel:#0f0f10;
       --panel2:#121214;
