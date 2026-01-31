@@ -27,7 +27,358 @@ a{
 
 <h1>CARRASCO BURGERS</h1>
 <p>Aqui o sabor não pede licença</p>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrasco Burguers — Cardápio Online</title>
+  <meta name="description" content="Carrasco Burguers em Osasco — cardápio online, promoções e pedidos via WhatsApp e iFood."/>
+  <style>
+    :root{
+      --bg:#070707;
+      --panel:#0f0f10;
+      --panel2:#121214;
+      --gold:#d4af37;
+      --gold2:#f2d46b;
+      --txt:#f3f3f3;
+      --muted:#a9a9a9;
+      --line:rgba(212,175,55,.18);
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 800px at 50% -10%, rgba(212,175,55,.12), transparent 55%),
+                  radial-gradient(900px 600px at 90% 20%, rgba(212,175,55,.08), transparent 60%),
+                  var(--bg);
+      color:var(--txt);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.35;
+    }
+    a{color:inherit}
+    .wrap{max-width:980px;margin:0 auto;padding:28px 18px 110px}
+    .top{
+      display:flex;gap:12px;align-items:center;justify-content:space-between;
+      padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(15,15,16,.7);
+      backdrop-filter: blur(10px);
+    }
+    .badge{font-size:12px;color:var(--muted)}
+    .btns{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{
+      text-decoration:none;
+      padding:10px 14px;border-radius:999px;font-weight:700;font-size:13px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(18,18,20,.9), rgba(10,10,11,.9));
+    }
+    .btn.gold{
+      border:none;color:#000;
+      background:linear-gradient(180deg, var(--gold2), var(--gold));
+      box-shadow: 0 10px 30px rgba(212,175,55,.25);
+    }
 
+    .hero{margin-top:22px;display:grid;gap:16px}
+    .brand{
+      border:1px solid var(--line);border-radius:var(--radius);background:rgba(15,15,16,.75);
+      padding:22px 18px;box-shadow:var(--shadow);
+      position:relative;overflow:hidden;
+    }
+    .brand:before{
+      content:"";position:absolute;inset:-2px;
+      background: radial-gradient(600px 240px at 30% 0%, rgba(212,175,55,.22), transparent 60%);
+      pointer-events:none;
+    }
+    .logo{
+      display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;
+      text-align:center
+    }
+    .flame{
+      width:44px;height:44px;border-radius:14px;
+      background:linear-gradient(180deg, rgba(212,175,55,.35), rgba(212,175,55,.08));
+      border:1px solid var(--line);
+      display:grid;place-items:center;
+    }
+    .flame span{font-size:22px}
+    h1{
+      margin:0;font-size:34px;letter-spacing:.06em;
+      color:var(--gold2);text-transform:uppercase;
+    }
+    .slogan{margin:10px 0 0;text-align:center;color:#ddd}
+    .meta{
+      margin-top:12px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
+      color:var(--muted);font-size:13px
+    }
+    .chip{
+      padding:7px 10px;border-radius:999px;border:1px solid var(--line);
+      background:rgba(0,0,0,.25)
+    }
+
+    .grid{display:grid;gap:14px;margin-top:16px}
+    @media(min-width:900px){
+      .grid{grid-template-columns: 1.3fr .7fr}
+    }
+
+    .card{
+      border:1px solid var(--line);border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(18,18,20,.78), rgba(10,10,11,.78));
+      box-shadow:var(--shadow);
+      padding:16px;
+    }
+    .title{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      margin-bottom:8px
+    }
+    .title h2{margin:0;font-size:16px;color:var(--gold2);letter-spacing:.02em}
+    .small{font-size:12px;color:var(--muted)}
+    .promo{
+      display:grid;gap:10px
+    }
+    .promo .p{
+      border-radius:14px;border:1px solid rgba(212,175,55,.18);
+      background:rgba(0,0,0,.25);
+      padding:12px
+    }
+    .promo b{color:var(--gold2)}
+    .section{margin-top:22px}
+    .section h3{
+      margin:0 0 10px;font-size:14px;color:var(--gold2);
+      text-transform:uppercase;letter-spacing:.12em
+    }
+
+    .items{display:grid;gap:12px}
+    @media(min-width:700px){ .items{grid-template-columns: 1fr 1fr} }
+
+    .item{
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:rgba(0,0,0,.25);
+      padding:14px;
+      display:grid;gap:8px
+    }
+    .row{display:flex;gap:10px;align-items:flex-start;justify-content:space-between}
+    .name{font-weight:800}
+    .price{font-weight:900;color:var(--gold2);white-space:nowrap}
+    .desc{color:#d7d7d7;font-size:13px}
+    .tag{
+      display:inline-flex;align-items:center;gap:6px;
+      font-size:12px;color:#f3e4a7;
+      border:1px solid rgba(212,175,55,.22);
+      background:rgba(212,175,55,.08);
+      padding:5px 8px;border-radius:999px;width:max-content
+    }
+    .note{margin-top:10px;color:var(--muted);font-size:12px}
+
+    .divider{height:1px;background:rgba(212,175,55,.12);margin:14px 0}
+
+    /* Sticky bottom bar */
+    .sticky{
+      position:fixed;left:0;right:0;bottom:0;z-index:99;
+      padding:12px 14px;
+      background:linear-gradient(180deg, rgba(7,7,7,.0), rgba(7,7,7,.9) 20%, rgba(7,7,7,.98));
+      backdrop-filter: blur(10px);
+    }
+    .sticky .inner{
+      max-width:980px;margin:0 auto;display:grid;grid-template-columns: 1fr 1fr;gap:10px;
+    }
+    .cta{
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      border-radius:16px;padding:14px 12px;text-decoration:none;font-weight:900;
+      border:1px solid var(--line);
+      background:rgba(15,15,16,.7);
+    }
+    .cta.gold{
+      border:none;color:#000;background:linear-gradient(180deg, var(--gold2), var(--gold));
+    }
+    .cta span{font-size:14px}
+    .cta small{font-size:12px;font-weight:700;opacity:.85}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="top">
+      <div class="badge">📍 Vila Yara • Osasco</div>
+      <div class="btns">
+        <a class="btn" href="https://wa.me/5511949354173?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20no%20Carrasco%20Burguers." target="_blank" rel="noreferrer">WhatsApp</a>
+        <a class="btn gold" href="https://www.ifood.com.br/delivery/osasco-sp/carrasco-burguers-vila-campesina/adaf1d4c-b251-46c9-ac4b-9b11dd7db00a" target="_blank" rel="noreferrer">Pedir no iFood</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="brand">
+        <div class="logo">
+          <div class="flame"><span>🔥</span></div>
+          <div>
+            <h1>Carrasco Burguers</h1>
+          </div>
+        </div>
+        <p class="slogan">Aqui o sabor não pede licença</p>
+        <div class="meta">
+          <div class="chip">🕚 Seg a Sáb • 11h às 23h</div>
+          <div class="chip">🍔 Só Burguer</div>
+          <div class="chip">⚡ Pedido rápido</div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="title">
+            <h2>Promoções</h2>
+            <div class="small">*podem variar por app</div>
+          </div>
+          <div class="promo">
+            <div class="p"><b>Combo em destaque</b> — peça “Combo Sentença” e economize no conjunto.</div>
+            <div class="p"><b>Upgrade Natural</b> — troque refri por suco 500ml no combo.</div>
+            <div class="p"><b>Horário esperto</b> — acompanhe as promos do dia nos apps.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="title">
+            <h2>Como pedir</h2>
+          </div>
+          <div class="small">1) Escolha o lanche</div>
+          <div class="small">2) Se quiser, adicione o Combo</div>
+          <div class="small">3) Finalize no WhatsApp ou iFood</div>
+          <div class="divider"></div>
+          <div class="small">Dica: use “Adicionais” pra personalizar.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HAMBÚRGUERES -->
+    <div class="section">
+      <h3>Hambúrgueres Artesanais</h3>
+      <div class="items">
+        <div class="item">
+          <div class="row">
+            <div class="name">Carrasco Clássico</div>
+            <div class="price">R$ 52,90</div>
+          </div>
+          <div class="desc">Hambúrguer bovino 180g, queijo derretido, bacon crocante e maionese da casa no pão brioche.</div>
+        </div>
+
+        <div class="item">
+          <div class="row">
+            <div class="name">Carrasco Negro</div>
+            <div class="price">R$ 59,90</div>
+          </div>
+          <div class="desc">Hambúrguer bovino 180g, queijo intenso, cebola caramelizada e maionese especial no pão escuro.</div>
+        </div>
+
+        <div class="item">
+          <div class="row">
+            <div class="name">Duplo Carrasco</div>
+            <div class="price">R$ 51,90</div>
+          </div>
+          <div class="desc">Dois smash burgers 90g, queijo derretido, bacon e cebola grelhada no pão brioche.</div>
+        </div>
+
+        <div class="item">
+          <div class="row">
+            <div class="name">Carrasco de Fogo</div>
+            <div class="price">R$ 48,90</div>
+          </div>
+          <div class="tag">🌶 Levemente apimentado</div>
+          <div class="desc">Filé de frango empanado, queijo derretido e molho levemente apimentado no pão brioche.</div>
+        </div>
+
+        <div class="item">
+          <div class="row">
+            <div class="name">Carrasco Verde</div>
+            <div class="price">R$ 52,90</div>
+          </div>
+          <div class="tag">🌿 Vegetariano</div>
+          <div class="desc">Hambúrguer vegetal, maionese de ervas e tomate confit no pão brioche.</div>
+        </div>
+      </div>
+
+      <div class="note">⚠️ Lanches sem salada padrão (salada disponível nos adicionais).</div>
+    </div>
+
+    <!-- COMBO -->
+    <div class="section">
+      <h3>Combo</h3>
+      <div class="card">
+        <div class="title">
+          <h2>⚖ Combo Sentença</h2>
+          <div class="price">+ R$ 18,90</div>
+        </div>
+        <div class="desc"><b>Lanche + Batata Sem Perdão + Bebida</b></div>
+        <div class="desc" style="margin-top:6px;color:var(--muted);font-size:13px">
+          Bebida: Refrigerante 350ml <span style="opacity:.6">ou</span> Suco natural 500ml (laranja, limão, abacaxi, manga, maracujá, abacaxi com hortelã).
+        </div>
+      </div>
+    </div>
+
+    <!-- ACOMPANHAMENTOS -->
+    <div class="section">
+      <h3>Acompanhamentos</h3>
+      <div class="items">
+        <div class="item">
+          <div class="row">
+            <div class="name">Batata Sem Perdão</div>
+            <div class="price">R$ 15,90</div>
+          </div>
+          <div class="desc">Batata frita crocante. Direta. Sem desculpas.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADICIONAIS -->
+    <div class="section">
+      <h3>Adicionais</h3>
+      <div class="items">
+        <div class="item"><div class="row"><div class="name">Golpe de Bacon</div><div class="price">R$ 8,00</div></div></div>
+        <div class="item"><div class="row"><div class="name">Queijo Condenado</div><div class="price">R$ 7,00</div></div></div>
+        <div class="item"><div class="row"><div class="name">Carga Extra (180g)</div><div class="price">R$ 18,90</div></div></div>
+        <div class="item"><div class="row"><div class="name">Molho Proibido</div><div class="price">R$ 4,00</div></div></div>
+        <div class="item"><div class="row"><div class="name">Agravante (pimenta)</div><div class="price">R$ 4,00</div></div></div>
+        <div class="item"><div class="row"><div class="name">Verde Condenado (alface + tomate)</div><div class="price">R$ 6,00</div></div></div>
+      </div>
+    </div>
+
+    <!-- BEBIDAS -->
+    <div class="section">
+      <h3>Bebidas</h3>
+      <div class="items">
+        <div class="item">
+          <div class="row"><div class="name">Refrigerante 350ml</div><div class="price">R$ 12,00</div></div>
+        </div>
+        <div class="item">
+          <div class="row"><div class="name">Suco natural 500ml</div><div class="price">R$ 16,00</div></div>
+          <div class="desc">Sabores: laranja • limão • abacaxi • manga • maracujá • abacaxi com hortelã.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="card">
+        <div class="title">
+          <h2>📌 Informações</h2>
+        </div>
+        <div class="small">Delivery: segunda a sábado • 11h às 23h</div>
+        <div class="small">Região: Vila Yara • Osasco</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Sticky CTA -->
+  <div class="sticky">
+    <div class="inner">
+      <a class="cta" href="https://wa.me/5511949354173?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20no%20Carrasco%20Burguers." target="_blank" rel="noreferrer">
+        <span>WhatsApp</span> <small>pedido direto</small>
+      </a>
+      <a class="cta gold" href="https://www.ifood.com.br/delivery/osasco-sp/carrasco-burguers-vila-campesina/adaf1d4c-b251-46c9-ac4b-9b11dd7db00a" target="_blank" rel="noreferrer">
+        <span>iFood</span> <small>pedir agora</small>
+      </a>
+    </div>
+  </div>
+</body>
+          </html>
 <a href="https://wa.me/5511949354173">Pedir no WhatsApp</a>
 <a href="https://www.ifood.com.br/delivery/osasco-sp/carrasco-burguers-vila-campesina/adaf1d4c-b251-46c9-ac4b-9b11dd7db00a">Pedir no iFood</a>
 
